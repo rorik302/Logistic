@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'api',
+    'catalogs.types_of_companies',
 ]
 
 MIDDLEWARE = [
