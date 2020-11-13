@@ -23,6 +23,7 @@ INSTALLED_APPS = [
 
     'api',
     'catalogs.types_of_companies',
+    'catalogs.terms_of_payments'
 ]
 
 MIDDLEWARE = [
