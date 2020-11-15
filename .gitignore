@@ -1,4 +1,6 @@
 *.sqlite3
 .idea
-migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 venv
