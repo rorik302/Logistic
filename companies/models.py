@@ -6,7 +6,7 @@ from catalogs.types_of_companies.models import TypeOfCompany
 class Company(models.Model):
     is_customer = models.BooleanField("Заказчик", default=False)
     is_transporter = models.BooleanField("Перевозчик", default=False)
-    type_of_company = models.ForeignKey(TypeOfCompany, on_delete=models.PROTECT)
+    type_of_company = models.ForeignKey(TypeOfCompany, on_delete=models.CASCADE, related_name="type_of_company")
     name = models.CharField("Наименование", max_length=100)
     inn = models.PositiveSmallIntegerField("ИНН")
     address = models.CharField("Адрес", max_length=200)

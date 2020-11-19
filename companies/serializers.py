@@ -5,8 +5,8 @@ from companies.models import Company
 
 
 class CompanySerializer(ModelSerializer):
+    type_of_company = TypesOfCompaniesSerializer(many=False)
+
     class Meta:
         model = Company
         fields = "__all__"
-
-    type_of_company = TypesOfCompaniesSerializer()
