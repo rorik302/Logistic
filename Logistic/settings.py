@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'api',
     'catalogs.types_of_companies',
     'catalogs.terms_of_payments',
-    'companies'
+    'companies',
+    'requests_app'
 ]
 
 MIDDLEWARE = [
@@ -99,3 +100,5 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+DATE_INPUT_FORMATS = ['%d.%m.%Y']
