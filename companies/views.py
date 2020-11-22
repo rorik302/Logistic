@@ -22,7 +22,7 @@ class CompaniesViewSet(ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         try:
-            type_of_company = TypeOfCompany.objects.get(pk=request.data.pop('type_of_company')['id'])
+            type_of_company = TypeOfCompany.objects.get(pk=request.data.pop('type_of_company'))
         except Exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
