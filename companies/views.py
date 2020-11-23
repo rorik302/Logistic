@@ -1,4 +1,5 @@
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -10,10 +11,11 @@ from companies.serializers import CompanySerializer
 class CompaniesViewSet(ModelViewSet):
     queryset = Company.objects.select_related("type_of_company")
     serializer_class = CompanySerializer
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         try:
-            type_of_company = TypeOfCompany.objects.get(pk=request.data.pop('type_of_company')['id'])
+            type_of_company = TypeOfCompany.objects.get(pk=request.data.pop('type_of_company'))
         except Exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 

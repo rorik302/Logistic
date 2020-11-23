@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -9,6 +10,7 @@ from requests_app.serializers import RequestSerializer
 class RequestViewSet(ModelViewSet):
     queryset = Request.objects.select_related("customer__type_of_company").select_related("transporter__type_of_company")
     serializer_class = RequestSerializer
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         instance = Request.objects.create(
