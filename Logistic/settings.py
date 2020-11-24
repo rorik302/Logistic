@@ -1,13 +1,14 @@
+import os
 from datetime import timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'SECRET'
+SECRET_KEY = os.environ.get("SECRET_KEY", "SECRET")
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,12 +68,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Logistic.wsgi.application'
 
-DATABASES = {
-    'default': {
+DATABASES = os.environ.get("DATABASES", {'default':
+    {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+})
 
 AUTH_PASSWORD_VALIDATORS = [
     {
